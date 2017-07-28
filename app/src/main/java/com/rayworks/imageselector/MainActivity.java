@@ -14,7 +14,6 @@ import android.view.ViewTreeObserver;
 
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.rayworks.utils.ImageCropHelper;
-import com.tbruyelle.rxpermissions.RxPermissions;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -59,8 +58,6 @@ public class MainActivity extends AppCompatActivity {
                 imageView.setImageBitmap(bitmap);
             }
         });
-
-        rxPermissions = new RxPermissions(this);
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
