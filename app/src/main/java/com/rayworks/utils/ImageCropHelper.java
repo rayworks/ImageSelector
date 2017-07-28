@@ -202,7 +202,7 @@ public final class ImageCropHelper {
     }
 
     private void onHandleCroppedImage(Uri uri) {
-        // recved the updated uri eg. content://com.ef.english24_7/images/file-path
+        // recved the updated uri
         InputStream imageStream = null;
         FileOutputStream output = null;
         try {

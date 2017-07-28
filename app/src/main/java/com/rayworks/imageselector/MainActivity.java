@@ -1,6 +1,5 @@
 package com.rayworks.imageselector;
 
-import android.Manifest;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -8,21 +7,17 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewTreeObserver;
-import android.widget.Toast;
 
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.rayworks.utils.ImageCropHelper;
 import com.tbruyelle.rxpermissions.RxPermissions;
 
-import rx.functions.Action1;
-
 public class MainActivity extends AppCompatActivity {
 
-    private RxPermissions rxPermissions;
     private ImageCropHelper imageCropHelper;
 
     private int realWidth;
@@ -80,21 +75,6 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         imageCropHelper.processActivityResult(requestCode, resultCode, data, realWidth, realHeight);
-    }
-
-    private void doSelectImage() {
-        rxPermissions.request(Manifest.permission.WRITE_EXTERNAL_STORAGE).subscribe(
-                new Action1<Boolean>() {
-                    @Override
-                    public void call(Boolean granted) {
-                        if (granted) {
-
-                        } else {
-                            Toast.makeText(MainActivity.this, "Action cancelled", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                }
-        );
     }
 
     @Override
